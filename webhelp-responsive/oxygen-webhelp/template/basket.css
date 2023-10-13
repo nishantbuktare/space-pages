@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+/*#
+@info@STYLES BASKET SELECTIONS METADATA@info@
+@name&styles_basket&name@
+@aspects&theme-fonts-monsterat-lato&aspects@
+@info@WARNING: PLEASE DON'T MODIFY THIS FILE. MODIFICIATION CAN CAUSE UPLOADING ERRORS@info@
+#*/
+/*theme-fonts-monsterat-lato*/
+*[class~='front-page/front-page-title'],
+*[class~='topic/topic'][is-chapter] > *[class~='topic/title'] {
+  font-family: 'Montserrat', sans-serif;
+}
+*[class~='topic/topic'][is-chapter] > *[class~='topic/topic'] > *[class~='topic/title'] {
+  font-family: 'Montserrat', sans-serif;
+}
+*[class~='topic/title'],
+*[class~='topic/thead'] {
+  font-family: 'Montserrat', sans-serif;
+}
+*[class~='topic/shortdesc'],
+*[class~='topic/p'],
+*[class~='topic/li'],
+*[class~='topic/tbody'] {
+  font-family: 'Lato', sans-serif;
+}
+

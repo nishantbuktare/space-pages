@@ -1,0 +1,1 @@
+oxy_webhelp_navlinks = {"x22000-d253e122":{"topics":[{"title":"X22000 Specs","href":"topics\/x22000-specs.html","attributes":{"data-id":"x22000-specs"},"menu":{"hasChildren":false},"tocID":"x22000-specs-d253e130","topics":[]}]}};
