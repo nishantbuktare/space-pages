@@ -1,6 +1,5 @@
-function nwSearchFnt(index, options, stemmer, util) {
-
-	/*
+define(["index", "options", "stemmer", "util"], function(index, options, stemmer, util) {
+    /*
 
      David Cramer
      <david AT thingbag DOT net>
@@ -45,11 +44,6 @@ function nwSearchFnt(index, options, stemmer, util) {
      7. Accept as valid search words that contains only 2 characters
 
      */
-     
-     this.index = index;
-     this.options = options;
-     this.stemmer = stemmer;
-     this.util = util;
 
     /**
      * Is set to true when the CJK tokenizer is used.
@@ -105,7 +99,7 @@ function nwSearchFnt(index, options, stemmer, util) {
      * The default boolean search operator.
      * @type {string}
      */
-    var defaultOperator = options.get('webhelp.search.default.operator');
+    var defaultOperator = "or";
 
 
     /**
@@ -172,17 +166,15 @@ function nwSearchFnt(index, options, stemmer, util) {
      * @param {string} originalSearchExpression The initial search expression.
      * @param {DocumentInfo[]} documents The array containing the search result grouped by topic/document.
      * @param {string} errorMsg The message returned by search when an error occurred. This message will be displayed to user.
-     * @param {Boolean} isPhraseSearch <code>true</code> the search performed a phrase search, <code>false</code> otherwise.
      *
      * @constructor
      */
-    function SearchResult(searchExpression, excluded, originalSearchExpression, documents, errorMsg, isPhraseSearch) {
+    function SearchResult(searchExpression, excluded, originalSearchExpression, documents, errorMsg) {
         this.searchExpression = searchExpression;
         this.excluded = excluded;
         this.documents = documents;
         this.originalSearchExpression = originalSearchExpression;
         this.error = errorMsg;
-        this.isPhraseSearch = isPhraseSearch;
     }
 
     /**
@@ -209,9 +201,44 @@ function nwSearchFnt(index, options, stemmer, util) {
         this.breadcrumb = breadcrumb;
     }
 
-    this.performSearch = function(searchQuery, _callback) {
-    	var result = performSearchInternal(searchQuery);
-        _callback(result);
+    function performSearchDriver(searchQuery, _callback) {
+        var indexerLanguage = options.getIndexerLanguage();
+        var useKuromoji = indexerLanguage.indexOf("ja") != -1 && options.getBoolean('webhelp.enable.search.kuromoji.js')
+                && !util.isLocal();
+
+        if (indexerLanguage.indexOf("ja") != -1 && util.isLocal() && options.getBoolean('webhelp.enable.search.kuromoji.js')) {
+            var note = $('<div/>').addClass('col-xs-12 col-sm-12 col-md-12 col-lg-12')
+                .html(localNote);
+            $('#searchResults').before(note);
+        }
+
+        if (useKuromoji) {
+            require(["kuromoji"], function (kuromoji) {
+                kuromoji.builder({ dicPath: "oxygen-webhelp/lib/kuromoji/dict" }).build(function (err, tokenizer) {
+                    // tokenizer is ready
+                    var tokens = tokenizer.tokenize(searchQuery);
+
+                    var finalWordsList = [];
+                    for (var w in tokens) {
+                        var word = tokens[w].surface_form;
+                        if (word!=" ") {
+                            finalWordsList.push(word);
+                        }
+                    }
+
+                    if (finalWordsList.length) {
+                        var finalWordsString = finalWordsList.join(" ");
+
+                        _callback(performSearchInternal(finalWordsString));
+                    } else {
+                        util.debug("Empty set");
+                    }
+                });
+            })
+
+        } else {
+            _callback(performSearchInternal(searchQuery));
+        }
     }
 
     /**
@@ -226,6 +253,7 @@ function nwSearchFnt(index, options, stemmer, util) {
         util.debug("searchQuery", searchQuery);
         init();
 
+        var initialSearchExpression = searchQuery;
         var phraseSearch = false;
         searchQuery = searchQuery.trim();
         if (searchQuery.length > 2 && !useCJKTokenizing) {
@@ -234,12 +262,11 @@ function nwSearchFnt(index, options, stemmer, util) {
             phraseSearch =
                 (firstChar == "'" || firstChar == '"') &&
                 (lastChar == "'" || lastChar == '"');
-           	if(phraseSearch) {
-           		searchQuery = searchQuery.substring(1, searchQuery.length-1);
-           	}
         }
-		var initialSearchExpression = searchQuery;
-	
+
+        // Remove ' and " characters
+        searchQuery = searchQuery.replace(/"/g, " ").replace(/'/g, " ");
+
         var errorMsg;
         try {
             realSearchQuery = preprocessSearchQuery(searchQuery, phraseSearch);
@@ -333,7 +360,9 @@ function nwSearchFnt(index, options, stemmer, util) {
                 docInfos.push(docInfo);
             }
         }
-        var searchResult = new SearchResult(realSearchQuery, excluded, initialSearchExpression, docInfos, errorMsg, phraseSearch);
+        // Filter expression to cross site scripting possibility
+        initialSearchExpression = filterOriginalSearchExpression(initialSearchExpression);
+        var searchResult = new SearchResult(realSearchQuery, excluded, initialSearchExpression, docInfos, errorMsg);
         return searchResult;
     }
 
@@ -597,7 +626,7 @@ function nwSearchFnt(index, options, stemmer, util) {
         searchTextField = searchTextField.replace(/  +/g, " ");
         searchTextField = searchTextField.replace(/ $/, "").replace(/^ /, " ");
 
-        return searchTextField.trim();
+        return searchTextField;
     }
 
 
@@ -650,30 +679,18 @@ function nwSearchFnt(index, options, stemmer, util) {
         // EXM-39245 - Remove punctuation marks
         // w1,w2 -> w1 w2
         searchTextField = searchTextField.replace(/[,]/g, ' ');
-        // w1, w2 -> w1 w2
-        searchTextField = searchTextField.replace(/[,]\s/g, ' ');
 
         // w1. w2 -> w1 w2
         searchTextField = searchTextField.replace(/\s\./g, ' ');
         searchTextField = searchTextField.replace(/\.\s/g, ' ');
-        searchTextField = searchTextField.replace(/\.$/, ' ');
 
         // w1! w2 -> w1 w2
         searchTextField = searchTextField.replace(/\s!/g, ' ');
         searchTextField = searchTextField.replace(/!\s/g, ' ');
-        searchTextField = searchTextField.replace(/!$/, ' ');
 
         // w1? w2 -> w1 w2
         searchTextField = searchTextField.replace(/\s\?/g, ' ');
         searchTextField = searchTextField.replace(/\?\s/g, ' ');
-        searchTextField = searchTextField.replace(/\?$/, ' ');
-
-        // w1- w2 -> w1 w2
-        searchTextField = searchTextField.replace(/\s-/g, ' ');
-        searchTextField = searchTextField.replace(/-\s/g, ' ');
-
-        // w1= w2 -> w1 w2
-        searchTextField = searchTextField.replace(/=/g, ' ');
 
         var expressionInput = searchTextField;
 
@@ -1335,7 +1352,7 @@ function nwSearchFnt(index, options, stemmer, util) {
         // Split after * to obtain the right values
 
         // Group the words by topicID -> {word, indices}
-        var fileAndWordListAndScore = {};
+        var fileAndWordList = {};
         for (var t in words) {
             // get the list of the indices of the files.
             var topicIDAndScore = index.w[words[t]];
@@ -1345,13 +1362,14 @@ function nwSearchFnt(index, options, stemmer, util) {
 
                 //for each file (file's index):
                 for (var t2 in topicInfoArray) {
+                    var tmp = '';
+
                     var temp = topicInfoArray[t2].toString();
                     var idx = temp.indexOf('*');
                     if (idx != -1) {
-                        // Extract the topic id.
                         var tid = temp.substring(0, idx);
 
-                        // Extract word indices.
+                        // Extract word indices
                         var starLastIdx = temp.indexOf("*", idx + 1);
                         var wordIndices = [];
                         if (starLastIdx != -1) {
@@ -1359,19 +1377,16 @@ function nwSearchFnt(index, options, stemmer, util) {
                             wordIndices = indicesStr.split('$');
                         }
 
-                        // Extract the score.
-                        var score = temp.split('*')[1];
+                        if (fileAndWordList[tid] == undefined) {
+                            fileAndWordList[tid] = [];
+                        }
 
-                        var wordAndIdx = {
+                        var wAndIdx = {
                             word: words[t],
                             indices: wordIndices
                         };
 
-                        if (fileAndWordListAndScore[tid] === undefined) {
-                            fileAndWordListAndScore[tid] = new TopicIDAndWordList(tid);
-                        } 
-                        fileAndWordListAndScore[tid].update(wordAndIdx, score);
-
+                        fileAndWordList[tid].push(wAndIdx);
                     } else {
                         warn("Unexpected writing format, '*' delimiter is missing.");
                     }
@@ -1380,12 +1395,25 @@ function nwSearchFnt(index, options, stemmer, util) {
         }
 
 
+        // An array with TopicIDAndWordList objects
+        var tidWordsArray = [];
+        for (t in fileAndWordList) {
+            tidWordsArray.push(new TopicIDAndWordList(t, fileAndWordList[t]));
+        }
+        tidWordsArray = removeDerivates(tidWordsArray, searchedWord);
+
         // Compute the array with results per file
         var resultsPerFileArrays = [];
-        for (t in fileAndWordListAndScore) {
-            var currentElement = fileAndWordListAndScore[t];
-            currentElement.removeDerivates(searchedWord);
-            resultsPerFileArrays.push(new ResultPerFile(currentElement.filesNo, currentElement.wordList, currentElement.score));
+        for (t in tidWordsArray) {
+            var cTopicIDAndWordList = tidWordsArray[t];
+
+            var scoring =
+                computeScoring(fileAndWordList[cTopicIDAndWordList.filesNo], cTopicIDAndWordList.filesNo);
+            resultsPerFileArrays.push(
+                new ResultPerFile(
+                    cTopicIDAndWordList.filesNo,
+                    cTopicIDAndWordList.wordList,
+                    scoring));
         }
 
         // Sort by score
@@ -1397,51 +1425,37 @@ function nwSearchFnt(index, options, stemmer, util) {
     }
 
     /**
-     * Object to keep the topicID and a list of words that was found in that topic.
+     * Remove derivatives words from the list of words with the original word.
      *
-     * @param filesNo The topic ID or file number.
-     * @constructor
+     * @param {[TopicIDAndWordList]} obj Array that contains results for searched words
+     * @param {String} searchedWord search term typed by user
+     * @return {Array} Clean array results without duplicated and derivatives words
      */
-    function TopicIDAndWordList(filesNo) {
-        this.filesNo = filesNo;
-        this.wordList = [];
-        this.score = 0;
+    function removeDerivates(obj, searchedWord) {
 
-        /**
-         * Updates the score and the word list.
-         * 
-         * @param {Object} word The word with the indeces of appearance.
-         * @param {Integer} score The score for the word. 
-         */
-        this.update = function (word, score) {
-            this.wordList.push(word);
-            this.score += parseInt(score, 10);
-        };
-        
-        /**
-         * Remove derivatives words from the list of words with the original word.
-         *
-         * @param {String} searchedWord search term typed by user
-         */
-        this.removeDerivates = function (searchedWord) {
+        var toResultObject = [];
+        for (var i in obj) {
+            var filesNo = obj[i].filesNo;
+            var wordList = obj[i].wordList;
+
             // concat word results if word starts with the original word
             var wordIndicesMap = {};
-            for (var j=0; j < this.wordList.length; j++) {
-                var currentWord = this.wordList[j].word;
+            for (var j = 0; j < wordList.length; j++) {
+                var w = wordList[j].word;
                 if (searchInsideFilePath) {
-                    if (currentWord.indexOf(searchedWord) != -1) {
-                        currentWord = searchedWord;
+                    if (w.indexOf(searchedWord) != -1) {
+                        w = searchedWord;
                     }
                 } else {
-                    if (startsWith(currentWord, searchedWord)) {
-                        currentWord = searchedWord;
+                    if (startsWith(w, searchedWord)) {
+                        w = searchedWord;
                     }
                 }
 
-                if (wordIndicesMap[currentWord] == undefined) {
-                    wordIndicesMap[currentWord] = this.wordList[j].indices;
+                if (wordIndicesMap[w] == undefined) {
+                    wordIndicesMap[w] = wordList[j].indices;
                 } else {
-                    wordIndicesMap[currentWord] = wordIndicesMap[currentWord].concat(this.wordList[j].indices);
+                    wordIndicesMap[w] = wordIndicesMap[w].concat(wordList[j].indices);
                 }
             }
 
@@ -1455,10 +1469,27 @@ function nwSearchFnt(index, options, stemmer, util) {
                 );
             }
 
-            this.wordList = newWordsAray;
-        };
+            toResultObject.push(new TopicIDAndWordList(filesNo, newWordsAray));
+        }
+
+        return toResultObject;
     }
 
+    /**
+     * Object to keep the topicID and a list of words that was found in that topic.
+     *
+     * @param filesNo The topic ID or file number.
+     * @param {[obj]} wordList An array of {word, [idx]} objects.
+     * @constructor
+     */
+    function TopicIDAndWordList(filesNo, wordList) {
+        this.filesNo = filesNo;
+        this.wordList = wordList;
+    }
+
+
+// Object.
+// Add a new parameter - scoring.
 
     /**
      * An object containing the search result for a single topic.
@@ -1475,6 +1506,33 @@ function nwSearchFnt(index, options, stemmer, util) {
         this.filenb = filenb;
         this.wordsList = wordsList;
         this.scoring = scoring;
+    }
+
+    /**
+     * Compute score for one or more words for a given topic ID.
+     *
+     * @param words {[word: string, indices: [integer]]} The list with words separated by ','.
+     * @param topicID {number} The topic ID.
+     * @returns {number} The score for the given words.
+     */
+    function computeScoring(words, topicID) {
+        var sum = 0;
+
+        for (var jj = 0; jj < words.length; jj++) {
+            var cWord = words[jj].word;
+            // Check if the word was indexed
+            if (index.w[cWord] !== undefined) {
+                // w["flowering"]="1*5,3*7";
+                var topicIDScoreArray = index.w[cWord].split(',');
+                for (var ii = 0; ii < topicIDScoreArray.length; ii++) {
+                    var tidAndScore = topicIDScoreArray[ii].split('*');
+                    if (tidAndScore[0] == topicID) {
+                        sum += parseInt(tidAndScore[1]);
+                    }
+                }
+            }
+        }
+        return sum;
     }
 
     function compareWords(s1, s2) {
@@ -1592,20 +1650,22 @@ function nwSearchFnt(index, options, stemmer, util) {
                 return this;
             }
             this.value = this.value.concat(operand.value);
-            var filenbToResultMap = {};
-            for(var i=0; i<this.value.length; i++) {
-                var fileResult = filenbToResultMap[this.value[i].filenb];
-                if(fileResult === undefined) {
-                    filenbToResultMap[this.value[i].filenb] = this.value[i];
-                } else {
-                    fileResult.wordsList =  fileResult.wordsList.concat(this.value[i].wordsList);
-                    fileResult.scoring = fileResult.scoring + this.value[i].scoring;
-                }
-            }
-
             var result = [];
-            for(var key in filenbToResultMap) {
-                result.push(filenbToResultMap[key]);
+
+            for (var i = 0; i < this.value.length; i++) {
+                var unique = true;
+                for (var j = 0; j < result.length; j++) {
+                    if (this.value[i].filenb == result[j].filenb) {
+                        result[j].wordsList = result[j].wordsList.concat(this.value[i].wordsList);
+                        var numberOfWords = result[j].wordsList.length;
+                        result[j].scoring = this.value[i].scoring + result[j].scoring;
+                        unique = false;
+                        break;
+                    }
+                }
+                if (unique) {
+                    result.push(this.value[i]);
+                }
             }
 
             this.value = result;
@@ -1696,4 +1756,8 @@ function nwSearchFnt(index, options, stemmer, util) {
         return re.test(toTest);
     }
 
-}
+    return {
+        performSearch: performSearchDriver
+    }
+
+});

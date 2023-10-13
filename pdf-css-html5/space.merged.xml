@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type='text/css' href='file:/D:/oxygen-22.1/frameworks/dita/DITA-OT3.x/plugins/com.oxygenxml.webhelp.responsive/oxygen-webhelp/app/topic-page-print.css'?>
-<?xml-stylesheet type='text/css' href='file:/D:/oxygen-22.1/frameworks/dita/css/print/p-dita.css'?>
-<?xml-stylesheet type='text/css' href='file:/D:/oxygen-22.1/frameworks/dita/DITA-OT3.x/plugins/com.oxygenxml.editlink/pdf-css.css'?>
-<?xml-stylesheet type='text/css' href='file:/C:/Users/julien/Documents/OxygenXMLEditor/space/publishing/basket.css'?>
-<bookmap xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:opentopic-index="http://www.idiominc.com/opentopic/index" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oxy="http://www.oxygenxml.com/extensions/author" xmlns:nd="http://www.oxygenxml.com/css2fo/named-destinations" xmlns:opentopic="http://www.idiominc.com/opentopic" xmlns:css2fo="http://www.oxygenxml.com/css2fo" xmlns:dita-ot="dita-ot.sourceforge.net/ns/201007/dita-ot" cascade="merge" class="- map/map bookmap/bookmap " ditaarch:DITAArchVersion="1.3" domains="(map mapgroup-d) (map bookmap) (topic abbrev-d) (topic delay-d) a(props deliveryTarget) (map ditavalref-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic ui-d) (topic ut-d) (topic xnal-d) (topic markup-d xml-d)" xtrc="bookmap:1;3:10" xtrf="file:/C:/Users/julien/Documents/OxygenXMLEditor/space/sample/space.ditamap" xml:lang="en"><oxy:front-page class="- front-page/front-page "><oxy:front-page-title class="- front-page/front-page-title "><booktitle xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" xmlns:ot-placeholder="http://suite-sol.com/namespaces/ot-placeholder" class="- topic/title bookmap/booktitle ">  <mainbooktitle class="- topic/ph bookmap/mainbooktitle ">Space Exploration</mainbooktitle>  </booktitle></oxy:front-page-title></oxy:front-page><opentopic:map xmlns:ot-placeholder="http://suite-sol.com/namespaces/ot-placeholder" class="- toc/toc "><oxy:toc-title class="- toc/title " empty="true"/>
+<?xml-stylesheet type='text/css' href='file:/home/circleci/project/ope/plugins/com.oxygenxml.webhelp.responsive/oxygen-webhelp/app/topic-page-print.css'?>
+<?xml-stylesheet type='text/css' href='file:/home/circleci/project/ope/plugins/com.oxygenxml.pdf.css/css/print/p-dita.css'?>
+<?xml-stylesheet type='text/css' href='file:/home/circleci/project/ope/plugins/com.oxygenxml.editlink/pdf-css.css'?>
+<?xml-stylesheet type='text/css' href='file:/home/circleci/project/publishing/basket.css'?>
+<bookmap xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:opentopic-index="http://www.idiominc.com/opentopic/index" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oxy="http://www.oxygenxml.com/extensions/author" xmlns:nd="http://www.oxygenxml.com/css2fo/named-destinations" xmlns:opentopic="http://www.idiominc.com/opentopic" xmlns:css2fo="http://www.oxygenxml.com/css2fo" xmlns:dita-ot="dita-ot.sourceforge.net/ns/201007/dita-ot" xmlns:css-param="http://www.oxygenxml.com/extensions/publishing/dita/css/params" cascade="merge" class="- map/map bookmap/bookmap " ditaarch:DITAArchVersion="1.3" domains="(map mapgroup-d) (map bookmap) (topic abbrev-d) (topic delay-d) a(props deliveryTarget) (map ditavalref-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic ui-d) (topic ut-d) (topic xnal-d) (topic markup-d xml-d)" xtrc="bookmap:1;3:10" xtrf="file:/home/circleci/project/sample/space.ditamap" css-param:numbering="deep" xml:lang="en"><oxy:front-page class="- front-page/front-page "><oxy:front-page-title class="- front-page/front-page-title "><booktitle xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" xmlns:ot-placeholder="http://suite-sol.com/namespaces/ot-placeholder" class="- topic/title bookmap/booktitle ">  <mainbooktitle class="- topic/ph bookmap/mainbooktitle ">Space Exploration</mainbooktitle>  </booktitle></oxy:front-page-title></oxy:front-page><opentopic:map xmlns:ot-placeholder="http://suite-sol.com/namespaces/ot-placeholder" class="- toc/toc "><oxy:toc-title class="- toc/title " empty="true"/>
     <booktitle xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/title bookmap/booktitle ">  <mainbooktitle class="- topic/ph bookmap/mainbooktitle ">Space Exploration</mainbooktitle>  </booktitle>
     <frontmatter xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- map/topicref bookmap/frontmatter "><booklists class="- map/topicref bookmap/booklists "/></frontmatter>
     <chapter xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" is-chapter="true" class="- map/topicref bookmap/chapter " href="#unique_1" type="topic"><topicmeta class="- map/topicmeta " data-topic-id="topic_jnc_5lv_kx"><resourceid appid="topic_jnc_5lv_kx" class="- topic/resourceid " oxy-source="topic"/><navtitle href="#unique_1" class="- topic/navtitle ">Introduction</navtitle><?ditaot gentext?><?ditaot genshortdesc?><shortdesc class="- map/shortdesc ">Brief introduction to the concept of space exploration</shortdesc></topicmeta></chapter>
@@ -76,7 +76,7 @@
             planets are orbited by one or more natural satellites.</p>
         <p class="- topic/p ">
             <fig class="- topic/fig " id="unique_3_Connect_42_fig1" nd:nd-id="fig1"><title class="- topic/title ">The Solar System</title><p class="- topic/p ">
-                    <imagemap class="+ topic/fig ut-d/imagemap "><image class="- topic/image " href="file:/C:/Users/julien/Documents/OxygenXMLEditor/space/sample/img/solar-system.jpg" placement="inline"/><area class="+ topic/figgroup ut-d/area ">
+                    <imagemap class="+ topic/fig ut-d/imagemap "><image class="- topic/image " href="file:/home/circleci/project/sample/img/solar-system.jpg" placement="inline"/><area class="+ topic/figgroup ut-d/area ">
                             <shape class="+ topic/keyword ut-d/shape " translate="no">circle</shape>
                             <coords class="+ topic/ph ut-d/coords " translate="no">196, 441, 17</coords>
                             <xref class="- topic/xref " format="dita" href="#unique_4_Connect_42_mercury" type="section"><?ditaot usertext?>Mercury</xref>
@@ -136,7 +136,7 @@
                 period around the Sun of 87.97 days is the shortest of all the planets in the Solar
                 System. It is named after the Roman deity Mercury, the messenger of the gods.</p>
             <p class="- topic/p ">
-                <fig class="- topic/fig " id="unique_4_Connect_42_fig2" nd:nd-id="fig2"><title class="- topic/title ">Planet Mercury</title><image class="- topic/image " href="file:/C:/Users/julien/Documents/OxygenXMLEditor/space/sample/img/Mercury.jpg" placement="inline"/></fig>
+                <fig class="- topic/fig " id="unique_4_Connect_42_fig2" nd:nd-id="fig2"><title class="- topic/title ">Planet Mercury</title><image class="- topic/image " href="file:/home/circleci/project/sample/img/Mercury.jpg" placement="inline"/></fig>
             </p>
         </section>
         <section class="- topic/section " id="unique_4_Connect_42_venus" nd:nd-id="venus">
@@ -147,7 +147,7 @@
                 in the west and set in the east). It does not have any natural satellites. It is
                 named after the Roman goddess of love and beauty.</p>
             <p class="- topic/p ">
-                <fig class="- topic/fig " id="d32e519"><title class="- topic/title " id="unique_4_Connect_42_fig3" nd:nd-id="fig3">Planet Venus</title><image class="- topic/image " href="file:/C:/Users/julien/Documents/OxygenXMLEditor/space/sample/img/Venus.jpg" placement="inline"/></fig>
+                <fig class="- topic/fig " id="d32e519"><title class="- topic/title " id="unique_4_Connect_42_fig3" nd:nd-id="fig3">Planet Venus</title><image class="- topic/image " href="file:/home/circleci/project/sample/img/Venus.jpg" placement="inline"/></fig>
             </p>
         </section>
         <section class="- topic/section " id="unique_4_Connect_42_earth" nd:nd-id="earth">
@@ -159,7 +159,7 @@
                 revolves around the Sun in 365.26 days, a period known as an Earth year. During this
                 time, Earth rotates about its axis about 366.26 times.</p>
             <p class="- topic/p ">
-                <fig class="- topic/fig " id="unique_4_Connect_42_fig4" nd:nd-id="fig4"><title class="- topic/title ">Planet Earth</title><image class="- topic/image " href="file:/C:/Users/julien/Documents/OxygenXMLEditor/space/sample/img/Earth.jpg" placement="inline"/></fig>
+                <fig class="- topic/fig " id="unique_4_Connect_42_fig4" nd:nd-id="fig4"><title class="- topic/title ">Planet Earth</title><image class="- topic/image " href="file:/home/circleci/project/sample/img/Earth.jpg" placement="inline"/></fig>
             </p>
         </section>
         <section class="- topic/section " id="unique_4_Connect_42_mars" nd:nd-id="mars">
@@ -172,7 +172,7 @@
                 thin atmosphere, having surface features reminiscent both of the impact craters of
                 the Moon and the valleys, deserts, and polar ice caps of Earth.</p>
             <p class="- topic/p ">
-                <fig class="- topic/fig " id="unique_4_Connect_42_fig5" nd:nd-id="fig5"><title class="- topic/title ">Planet Mars</title><image class="- topic/image " href="file:/C:/Users/julien/Documents/OxygenXMLEditor/space/sample/img/Mars.jpg" placement="inline"/></fig>
+                <fig class="- topic/fig " id="unique_4_Connect_42_fig5" nd:nd-id="fig5"><title class="- topic/title ">Planet Mars</title><image class="- topic/image " href="file:/home/circleci/project/sample/img/Mars.jpg" placement="inline"/></fig>
             </p>
         </section>
     </body>
@@ -204,7 +204,7 @@
                 Jupiter has been known to astronomers since antiquity. The Romans named it after
                 their god Jupiter.</p>
             <p class="- topic/p ">
-                <fig class="- topic/fig " id="unique_5_Connect_42_fig6" nd:nd-id="fig6"><title class="- topic/title ">Planet Jupiter</title><image class="- topic/image " href="file:/C:/Users/julien/Documents/OxygenXMLEditor/space/sample/img/Jupiter.jpg" placement="inline"/></fig>
+                <fig class="- topic/fig " id="unique_5_Connect_42_fig6" nd:nd-id="fig6"><title class="- topic/title ">Planet Jupiter</title><image class="- topic/image " href="file:/home/circleci/project/sample/img/Jupiter.jpg" placement="inline"/></fig>
             </p>
         </section>
         <section class="- topic/section " id="unique_5_Connect_42_saturn" nd:nd-id="saturn">
@@ -215,7 +215,7 @@
                 larger volume Saturn is over 95 times more massive. Saturn is named after the Roman
                 god of agriculture; its astronomical symbol (♄) represents the god's sickle.</p>
             <p class="- topic/p ">
-                <fig class="- topic/fig " id="unique_5_Connect_42_fig7" nd:nd-id="fig7"><title class="- topic/title ">Planet Saturn</title><image class="- topic/image " href="file:/C:/Users/julien/Documents/OxygenXMLEditor/space/sample/img/Saturn.jpg" placement="inline"/></fig>
+                <fig class="- topic/fig " id="unique_5_Connect_42_fig7" nd:nd-id="fig7"><title class="- topic/title ">Planet Saturn</title><image class="- topic/image " href="file:/home/circleci/project/sample/img/Saturn.jpg" placement="inline"/></fig>
             </p>
         </section>
         <section class="- topic/section " id="unique_5_Connect_42_uranus" nd:nd-id="uranus">
@@ -229,7 +229,7 @@
                 of hydrogen and helium, but it contains more "ices" such as water, ammonia, and
                 methane, along with traces of other hydrocarbons.</p>
             <p class="- topic/p ">
-                <fig class="- topic/fig " id="unique_5_Connect_42_fig8" nd:nd-id="fig8"><title class="- topic/title ">Planet Uranus</title><image class="- topic/image " href="file:/C:/Users/julien/Documents/OxygenXMLEditor/space/sample/img/Uranus.jpg" placement="inline"/></fig>
+                <fig class="- topic/fig " id="unique_5_Connect_42_fig8" nd:nd-id="fig8"><title class="- topic/title ">Planet Uranus</title><image class="- topic/image " href="file:/home/circleci/project/sample/img/Uranus.jpg" placement="inline"/></fig>
             </p>
         </section>
         <section class="- topic/section " id="unique_5_Connect_42_neptune" nd:nd-id="neptune">
@@ -243,7 +243,7 @@
                 named after the Roman god of the sea and has the astronomical symbol ♆, a stylised
                 version of the god Neptune's trident.</p>
             <p class="- topic/p ">
-                <fig class="- topic/fig " id="unique_5_Connect_42_fig9" nd:nd-id="fig9"><title class="- topic/title ">Planet Neptune</title><image class="- topic/image " href="file:/C:/Users/julien/Documents/OxygenXMLEditor/space/sample/img/Neptune.jpg" placement="inline"/></fig>
+                <fig class="- topic/fig " id="unique_5_Connect_42_fig9" nd:nd-id="fig9"><title class="- topic/title ">Planet Neptune</title><image class="- topic/image " href="file:/home/circleci/project/sample/img/Neptune.jpg" placement="inline"/></fig>
             </p>
         </section>
     </body>
@@ -458,9 +458,9 @@
             <table class="- topic/table " colsep="1" frame="all" id="unique_12_Connect_42_table1" nd:nd-id="table1" rowsep="1">
                 <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">X22000 Specifications</ph></title>
                 <tgroup class="- topic/tgroup " cols="3">
-                    <colspec class="- topic/colspec " colname="col1" colnum="1" colwidth="1*" xtrc="colspec:1;19:69" xtrf="file:/C:/Users/julien/Documents/OxygenXMLEditor/space/sample/topics/x22000-specs.dita" style="width:20%;"/>
-                    <colspec class="- topic/colspec " colname="col2" colnum="2" colwidth="1*" xtrc="colspec:2;20:69" xtrf="file:/C:/Users/julien/Documents/OxygenXMLEditor/space/sample/topics/x22000-specs.dita" style="width:20%;"/>
-                    <colspec class="- topic/colspec " colname="col3" colnum="3" colwidth="3*" xtrc="colspec:3;21:69" xtrf="file:/C:/Users/julien/Documents/OxygenXMLEditor/space/sample/topics/x22000-specs.dita" style="width:60%;"/>
+                    <colspec class="- topic/colspec " colname="col1" colnum="1" colwidth="1*" xtrc="colspec:1;19:69" xtrf="file:/home/circleci/project/sample/topics/x22000-specs.dita" style="width:20%;"/>
+                    <colspec class="- topic/colspec " colname="col2" colnum="2" colwidth="1*" xtrc="colspec:2;20:69" xtrf="file:/home/circleci/project/sample/topics/x22000-specs.dita" style="width:20%;"/>
+                    <colspec class="- topic/colspec " colname="col3" colnum="3" colwidth="3*" xtrc="colspec:3;21:69" xtrf="file:/home/circleci/project/sample/topics/x22000-specs.dita" style="width:60%;"/>
                     <thead class="- topic/thead ">
                         <row class="- topic/row ">
                             <entry class="- topic/entry " colname="col1" dita-ot:x="1" dita-ot:y="1">Name</entry>
@@ -587,9 +587,9 @@ public boolean praesentium() {
             <table class="- topic/table " colsep="1" frame="all" id="unique_14_Connect_42_table2" nd:nd-id="table2" rowsep="1">
                 <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Z11000 Specifications</ph></title>
                 <tgroup class="- topic/tgroup " cols="3">
-                    <colspec class="- topic/colspec " colname="col1" colnum="1" colwidth="1*" xtrc="colspec:1;19:69" xtrf="file:/C:/Users/julien/Documents/OxygenXMLEditor/space/sample/topics/z11000-specs.dita" style="width:20%;"/>
-                    <colspec class="- topic/colspec " colname="col2" colnum="2" colwidth="1*" xtrc="colspec:2;20:69" xtrf="file:/C:/Users/julien/Documents/OxygenXMLEditor/space/sample/topics/z11000-specs.dita" style="width:20%;"/>
-                    <colspec class="- topic/colspec " colname="col3" colnum="3" colwidth="3*" xtrc="colspec:3;21:69" xtrf="file:/C:/Users/julien/Documents/OxygenXMLEditor/space/sample/topics/z11000-specs.dita" style="width:60%;"/>
+                    <colspec class="- topic/colspec " colname="col1" colnum="1" colwidth="1*" xtrc="colspec:1;19:69" xtrf="file:/home/circleci/project/sample/topics/z11000-specs.dita" style="width:20%;"/>
+                    <colspec class="- topic/colspec " colname="col2" colnum="2" colwidth="1*" xtrc="colspec:2;20:69" xtrf="file:/home/circleci/project/sample/topics/z11000-specs.dita" style="width:20%;"/>
+                    <colspec class="- topic/colspec " colname="col3" colnum="3" colwidth="3*" xtrc="colspec:3;21:69" xtrf="file:/home/circleci/project/sample/topics/z11000-specs.dita" style="width:60%;"/>
                     <thead class="- topic/thead ">
                         <row class="- topic/row ">
                             <entry class="- topic/entry " colname="col1" dita-ot:x="1" dita-ot:y="1">Name</entry>
