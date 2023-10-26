@@ -1,0 +1,474 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding&display=swap');
+/*#
+@colors&{"titlesAccentColor":"#000000","labelsAccentColor":"#3c3c3c","linksAccentColor":"#ea6100","backgroundAccentColor":"#faf6ef","isDefault":true}&colors@
+@info@STYLES BASKET SELECTIONS METADATA@info@
+@name&styles_basket&name@
+@aspects&wh-tiles,fonts-selector,page-size-a4,accent-colors-selector,logo-favicon-selector,title-font-size-medium,content-font-size-9-and-half,between-elements-medium,between-lines-large,table-style-box,related-links-styles-background-uppercase,related-links-colors-gray,related-links-background-accent-color-rounded,tasks-labels-yes,tasks-style-bullets,tasks-layout-sidebar-background,tasks-colors-background,page-margin-0-25,wh-tiles-themes-titles-colors-with-border-and-bg,wh-breadcrumb-style-bold-selection,wh-breadcrumb-colors-links-labels-background,wh-breadcrumb-separator-arrow,wh-left-toc-links-black-solid-background,wh-right-toc-colors-links-for-selection-black-foreground,wh-index-terms-colors-links-colors,wh-index-terms-background-background,wh-menu-page-colors-white-color-black-bg,wh-menu-page-depth-two,wh-search-component-colors-links,wh-search-component-background-color,wh-search-component-padding-large,wh-search-component-borders-color-links,wh-footer-colors-white,wh-footer-background-color-black,wh-footer-padding-extra-small,wh-right-toc-thin-left-border,titles-borders-underlined,footnotes-style-square-brackets-default-marker,code-font-nanum-gothic-coding,unordered-list-bullet-disc,table-colors-striped,pdf-cover-selector,pdf-cover-title-vertical-alignment-center,pdf-cover-title-colors-white-title,initial-page-print,header-colors-titles-background,header-style-italic&aspects@
+@info@WARNING: PLEASE DON'T MODIFY THIS FILE. MODIFICATION CAN CAUSE UPLOADING ERRORS@info@
+@info@TIP: YOU CAN USE custom.css TO ADD CUSTOM SELECTORS.@info@
+#*/
+@media print {
+  @page front-page {
+    background-image: url("resources/cover.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+  }
+}
+/* Bold selection in Publication TOC. WebHelp only. */
+@media screen {
+  .wh_publication_toc .active > .topicref a {
+    font-weight: bold;
+  }
+}
+/*accent-colors-selector*/
+.topictitle2,
+.topictitle3,
+.topictitle4,
+.topictitle5,
+.topictitle6,
+*[class~='front-page/front-page-title'],
+*[class~="toc/title"],
+*[class~="placeholder/figurelist"] > *[class~="topic/title"],
+*[class~="placeholder/tablelist"] > *[class~="topic/title"],
+*[class~="index/groups"]::before {
+  color: #000000;
+}
+*[class~='topic/shortdesc']:before {
+  color: #3c3c3c;
+}
+*[class~='topic/xref'],
+*[class~='topic/link'] {
+  color: #ea6100;
+}
+.related-links a,
+.related-links a:visited {
+  color: #ea6100;
+}
+a,
+a:hover,
+a:visited {
+  color: #ea6100;
+}
+*[class~='topic/table'] th {
+  background-color: #faf6ef;
+}
+/*fonts-selector*/
+@page {
+  font-family: 'BrandingFont', sans-serif;
+}
+.topictitle1,
+.topictitle2,
+.topictitle3,
+.topictitle4,
+.topictitle5,
+.topictitle6,
+*[class~='front-page/front-page-title'],
+*[class~="toc/title"],
+*[class~="map/topicref"],
+*[class~='topic/title'],
+*[class~='topic/thead'],
+*[class~="placeholder/figurelist"],
+*[class~="placeholder/tablelist"],
+*[class~="index/groups"]::before,
+*[class~="index/group"] > *[class~="index/label"],
+.wh_publication_title,
+.wh_top_menu,
+.wh_tile_title .topicref,
+.wh_main_page_toc_entry .topicref,
+.wh_index_terms span.wh_first_letter,
+.wh-letters li a {
+  font-family: 'BrandingFont', sans-serif;
+}
+body {
+  font-family: 'SecondaryBrandingFont', sans-serif;
+}
+/*title-font-size-medium*/
+.topictitle1,
+*[class~='toc/title'],
+*[class~="placeholder/figurelist"] > *[class~="topic/title"],
+*[class~="placeholder/tablelist"] > *[class~="topic/title"],
+*[class~="index/groups"]::before {
+  font-size: 21pt;
+}
+.topictitle2 {
+  font-size: 18pt;
+}
+.topictitle3,
+.topictitle4,
+.topictitle5,
+.topictitle6 {
+  font-size: 15pt;
+}
+/*content-font-size-9-and-half*/
+body {
+  font-size: 9.5pt;
+}
+/*between-elements-medium*/
+*[class~='topic/p'],
+*[class~='topic/lq'],
+*[class~='topic/note'],
+*[class~='topic/dl'],
+*[class~='topic/ul'],
+*[class~='topic/ol'],
+*[class~='topic/li'],
+*[class~='topic/sl'],
+*[class~='topic/pre'],
+*[class~='topic/lines'],
+*[class~='topic/fig'],
+*[class~='topic/table'],
+*[class~='topic/simpletable'],
+*[class~='topic/section'],
+*[class~='topic/example'] {
+  margin: 1.1em 0;
+}
+/*between-lines-large*/
+*[class~='topic/topic'],
+*[class~='topic/body'],
+*[class~='topic/title'] {
+  line-height: 1.6;
+}
+/*titles-borders-underlined*/
+.topictitle1,
+.topictitle2:not(*[class ~= "glossentry/glossterm"]),
+*[class~="toc/title"],
+*[class~="placeholder/figurelist"] > *[class~="topic/title"],
+*[class~="placeholder/tablelist"] > *[class~="topic/title"],
+*[class~="index/groups"]::before {
+  border-bottom: 1px solid;
+  padding-bottom: 0.25em;
+}
+/*footnotes-style-square-brackets-default-marker*/
+@media print {
+  *[class~="topic/fn"]::footnote-call {
+    content: "[" counter(footnote) "]";
+  }
+}
+*[class~="topic/fn"]::footnote-call,
+*[class~="topic/fn"]::footnote-marker,
+*[class~="topic/fn-call"] {
+  font-size: 83%;
+  line-height: none;
+}
+*[class~="topic/fn-call"] > sup::before {
+  content: "[";
+}
+*[class~="topic/fn-call"] > sup::after {
+  content: "]";
+}
+/*code-font-nanum-gothic-coding*/
+*[class~='pr-d/codeblock'],
+*[class~='codeblock'],
+*[class~='pr-d/codeph'],
+*[class~='codeph'] {
+  font-family: 'Nanum Gothic Coding', monospace;
+}
+/*table-style-box*/
+*[class~="topic/table"],
+*[class~="topic/simpletable"] {
+  border-top: thick solid !important;
+  border-bottom: thick solid !important;
+  border-left: thin solid !important;
+  border-right: thin solid !important;
+}
+*[class~='topic/entry'],
+*[class~='topic/stentry'] {
+  border: 0;
+}
+/*table-colors-striped*/
+*[class~='topic/strow']:nth-child(even),
+*[class~='topic/tbody'] *[class~='topic/row']:nth-child(even) {
+  background-color: #F5F5F5;
+}
+/*unordered-list-bullet-disc*/
+*[class="- topic/ul ul"] > *[class="- topic/li li"] {
+  list-style-type: disc;
+}
+/*related-links-styles-background-uppercase*/
+*[class~="topic/linklist"] > strong {
+  background-color: #faf6ef;
+  text-transform: uppercase;
+  padding-left: 0.5em;
+  display: inherit;
+}
+*[class~="topic/linklist"] > .linklist {
+  padding-left: 0.5em;
+}
+/*related-links-colors-gray*/
+*[class~="topic/linklist"] > strong {
+  color: #7d7d7d;
+}
+/*related-links-background-accent-color-rounded*/
+*[class~="topic/linklist"] {
+  padding: 15px;
+  background-color: #faf6ef;
+  border-radius: 15px;
+}
+/*tasks-labels-yes*/
+/*tasks-style-bullets*/
+ol[class~="task/steps"] {
+  counter-reset: step;
+  list-style-type: none;
+}
+ol[class~="task/steps"] > *[class~="task/step"] {
+  position: relative;
+  line-height: 1.7;
+}
+@media screen {
+  ol[class~="task/steps"] > *[class~="task/step"]:before {
+    counter-increment: step;
+    content: counter(step);
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.4;
+    width: 1.5em;
+    height: 1.5em;
+    position: absolute;
+    left: -1.8em;
+    top: 0.15em;
+    background-color: black;
+    color: white;
+  }
+}
+@media print {
+  *[class~="task/step"] {
+    padding-left: 0.25em;
+  }
+  ol[class~="task/steps"] > *[class~="task/step"]::marker {
+    counter-increment: step;
+    content: counter(step);
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.2;
+    width: 1.3em;
+    height: 1.3em;
+    background-color: black;
+    color: white;
+  }
+}
+/*tasks-layout-sidebar-background*/
+ol[class~="task/steps"] {
+  border-left: 5px solid #faf6ef;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+/*tasks-colors-background*/
+ol[class~="task/steps"] {
+  background-color: #faf6ef;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+/*page-size-a4*/
+@media print {
+  @page {
+    size: A4;
+  }
+}
+/*page-margin-0-25*/
+@media print {
+  @page {
+    margin: 0.25in;
+  }
+}
+/*pdf-cover-selector*/
+/*pdf-cover-title-vertical-alignment-center*/
+*[class~="front-page/front-page-title"] {
+  padding-top: 20%;
+}
+/*pdf-cover-title-colors-white-title*/
+*[class~="front-page/front-page-title"] > *[class~="topic/title"] {
+  color: white;
+  background-color: transparent;
+}
+*[class~="bookmap/booktitle"] {
+  padding: 0.5em;
+}
+/*initial-page-print*/
+@page chapter {
+  -oxy-initial-page-number: auto-odd;
+}
+/*header-colors-titles-background*/
+@page {
+  @top-left-corner {
+    content: "";
+    color: #000000;
+    background-color: #faf6ef;
+  }
+  @top-left {
+    color: #000000;
+    background-color: #faf6ef;
+  }
+  @top-center {
+    color: #000000;
+    background-color: #faf6ef;
+  }
+  @top-right {
+    color: #000000;
+    background-color: #faf6ef;
+  }
+  @top-right-corner {
+    content: "";
+    color: #000000;
+    background-color: #faf6ef;
+  }
+}
+/*header-style-italic*/
+@page {
+  @top-left-corner {
+    font-style: italic;
+  }
+  @top-left {
+    font-style: italic;
+  }
+  @top-center {
+    font-style: italic;
+  }
+  @top-right {
+    font-style: italic;
+  }
+  @top-right-corner {
+    font-style: italic;
+  }
+}
+/*wh-tiles*/
+/*wh-tiles-themes-titles-colors-with-border-and-bg*/
+.wh_tile {
+  border-radius: 8px;
+  background-color: rgba(250, 246, 239, 0.2);
+  border: 0.2em solid #faf6ef;
+}
+.wh_tile_title {
+  font-size: 1.2em;
+  text-align: center;
+  font-weight: 700;
+}
+.wh_tile_title span {
+  display: block;
+  width: 100%;
+}
+.wh_tile_title a {
+  display: block;
+  width: 100%;
+  color: #000000;
+}
+.wh_tile_title a:visited {
+  color: #000000;
+}
+.wh_tile_shortdesc {
+  margin-top: 0.5em;
+  text-align: center;
+  color: #000000;
+}
+/*wh-breadcrumb-style-bold-selection*/
+.wh_breadcrumb ol .active a {
+  font-weight: bold;
+}
+/*wh-breadcrumb-colors-links-labels-background*/
+.wh_breadcrumb ol a {
+  color: #3c3c3c;
+}
+.wh_breadcrumb ol .active a {
+  color: #ea6100;
+}
+.wh_tools {
+  background-color: #faf6ef;
+}
+/*wh-breadcrumb-separator-arrow*/
+.wh_breadcrumb li:not(:last-of-type):after {
+  content: ' > ';
+}
+/*wh-left-toc-links-black-solid-background*/
+.wh_publication_toc {
+  background-color: #faf6ef;
+  padding: 1em;
+}
+.wh_publication_toc .title a {
+  color: #000;
+}
+.wh_publication_toc .active > .topicref a {
+  color: #ea6100;
+}
+.wh_publication_toc .title a:hover {
+  text-decoration: underline;
+}
+/*wh-right-toc-thin-left-border*/
+.wh_topic_toc {
+  border-left: thin solid #3c3c3c;
+}
+/*wh-right-toc-colors-links-for-selection-black-foreground*/
+.wh_topic_toc .section-item .section-title a {
+  color: #000;
+}
+.wh_topic_toc .section-item .section-title a.current_node {
+  color: #ea6100;
+}
+/*wh-index-terms-colors-links-colors*/
+.wh_index_terms span.wh_first_letter,
+.wh-letters li a,
+.wh_term_target {
+  color: #ea6100;
+}
+/*wh-index-terms-background-background*/
+.wh-letters {
+  background-color: #faf6ef;
+}
+/*wh-menu-page-colors-white-color-black-bg*/
+.wh_header {
+  background-color: #000;
+}
+.wh_top_menu > ul > li a,
+.wh_indexterms_link a::before {
+  color: #fff;
+}
+.wh_indexterms_link a span {
+  display: none;
+}
+.wh_top_menu ul li:hover {
+  background-color: #404040;
+}
+.wh_top_menu ul ul {
+  background-color: #404040;
+}
+.wh_top_menu ul ul li {
+  border-top-color: #000;
+}
+.wh_top_menu ul ul li a:hover {
+  background: #000;
+}
+/*wh-menu-page-depth-two*/
+/*wh-search-component-colors-links*/
+.wh_search_button {
+  background-color: #ea6100;
+}
+/*wh-search-component-background-color*/
+.wh_search_input {
+  background-color: #faf6ef;
+}
+/*wh-search-component-padding-large*/
+.wh_search_input {
+  padding: 60px 0;
+}
+/*wh-search-component-borders-color-links*/
+.wh_search_textfield,
+.wh_search_button {
+  border-color: #ea6100;
+}
+/*wh-footer-colors-white*/
+.wh_footer {
+  background-color: #faf6ef;
+}
+.footer-container,
+.footer-container a {
+  color: #fff;
+}
+/*wh-footer-background-color-black*/
+.wh_footer {
+  background-color: #000000;
+}
+/*wh-footer-padding-extra-small*/
+.wh_footer {
+  padding: 20px 0;
+}
+

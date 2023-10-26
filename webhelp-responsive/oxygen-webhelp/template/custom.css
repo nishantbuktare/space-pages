@@ -1,0 +1,36 @@
+/*@info: PLACE YOUR CUSTOM CSS HERE.@info@*/
+
+.topictitle1, h1
+{
+    color: #ea6100;
+}
+
+.wh_content_flex_container
+{
+    padding-top: 2em;
+}
+
+.wh_tile
+{
+    border-radius: 0px !important;
+    background-color: none !important;
+    border: 1.5px solid #F5F5F5 !important;
+}
+
+.wh_tile_title a
+{
+    color: #ea6100 !important;
+}
+
+.wh_tile_title a:visited
+{
+    color: #b74c00 !important;
+}
+
+*[class~="topic/table"],
+*[class~="topic/simpletable"]
+{
+    border-left: none !important;
+    border-right: none !important;
+    width: 100%;
+}

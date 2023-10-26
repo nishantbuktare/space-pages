@@ -1,1 +1,0 @@
-define({"topics" : [{"title":"X22000 Specs","href":"topics\/x22000-specs.html","attributes": {"data-id":"x22000-specs",},"menu": {"hasChildren":false,},"tocID":"x22000-specs-d61e130","topics":[]}]});

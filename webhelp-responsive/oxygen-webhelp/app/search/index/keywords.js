@@ -1,53 +1,11 @@
-define(function() {var keywords=[{w:"Aeronautics",p:["p0"]},{w:"NASA",p:["p1"]},{w:"Anomalies",p:["p2"]},{w:"Deep",p:["p3"]},{w:"Space",p:["p3","p28","p29"]},{w:"Exploration",p:["p3"]},{w:"Perihelion",p:["p4"]},{w:"Perigee",p:["p5"]},{w:"Astronomy",p:["p6"]},{w:"Astronautics",p:["p7"]},{w:"Galaxies",p:["p8"]},{w:"Dwarf",p:["p9","p11"]},{w:"Milky",p:["p10"]},{w:"Way",p:["p10"]},{w:"galaxy",p:["p11"]},{w:"Sagittarius",p:["p12"]},{w:"Planets",p:["p13","p15","p31"]},{w:"Giant",p:["p14","p15"]},{w:"Jupiter",p:["p16"]},{w:"Saturn",p:["p17"]},{w:"Uranus",p:["p18"]},{w:"Neptune",p:["p19"]},{w:"Introduction",p:["p20"]},{w:"Terrestrial",p:["p21","p31"]},{w:"Pluto",p:["p22","p27"]},{w:"Norgay",p:["p23","p25"]},{w:"Montes",p:["p23"]},{w:"Sputnik",p:["p24"]},{w:"Planum",p:["p24"]},{w:"Tenzing",p:["p25"]},{w:"LORRI",p:["p26"]},{w:"Animated",p:["p27"]},{w:"Flyover",p:["p27"]},{w:"of",p:["p27"]},{w:"ships",p:["p28"]},{w:"craft",p:["p29"]},{w:"Rockets",p:["p30"]},{w:"Mercury",p:["p32"]},{w:"Venus",p:["p33"]},{w:"Earth",p:["p34"]},{w:"Mares",p:["p35"]},{w:"X22000",p:["p36","p38","p39","p40"]},{w:"Super",p:["p36"]},{w:"Rocket",p:["p36","p42"]},{w:"Specifications",p:["p37","p38","p43"]},{w:"Specs",p:["p39","p44"]},{w:"Saturius",p:["p41"]},{w:"XI",p:["p41"]},{w:"Z11000",p:["p42","p43","p44","p45"]},{w:"Light",p:["p42"]}];
+var keywords=[{w:"Accessories",p:["p0"]},{w:"Apps",p:["p1"]},{w:"and",p:["p1"]},{w:"software",p:["p1"]},{w:"Context",p:["p2"]},{w:"Sensitive",p:["p2"]},{w:"Help",p:["p2"]},{w:"Installer",p:["p3"]},{w:"Portal",p:["p3"]},{w:"Technical",p:["p3"]},{w:"Brief",p:["p3"]},{w:"Storage",p:["p4"]}];
 var ph={};
 ph["p0"]=[0];
-ph["p1"]=[1];
-ph["p2"]=[2];
-ph["p3"]=[3, 4, 5];
-ph["p4"]=[6];
-ph["p5"]=[7];
-ph["p6"]=[8];
-ph["p7"]=[9];
-ph["p8"]=[10];
-ph["p9"]=[11];
-ph["p30"]=[36];
-ph["p10"]=[12, 13];
-ph["p32"]=[37];
-ph["p31"]=[23, 16];
-ph["p12"]=[15];
-ph["p34"]=[39];
-ph["p11"]=[11, 14];
-ph["p33"]=[38];
-ph["p14"]=[17];
-ph["p36"]=[41, 42, 43];
-ph["p13"]=[16];
-ph["p35"]=[40];
-ph["p16"]=[18];
-ph["p38"]=[41, 44];
-ph["p15"]=[17, 16];
-ph["p37"]=[44];
-ph["p18"]=[20];
-ph["p17"]=[19];
-ph["p39"]=[41, 45];
-ph["p19"]=[21];
-ph["p41"]=[46, 47];
-ph["p40"]=[41];
-ph["p21"]=[23];
-ph["p43"]=[48, 44];
-ph["p20"]=[22];
-ph["p42"]=[48, 49, 43];
-ph["p23"]=[25, 26];
-ph["p45"]=[48];
-ph["p22"]=[24];
-ph["p44"]=[48, 45];
-ph["p25"]=[29, 25];
-ph["p24"]=[27, 28];
-ph["p27"]=[31, 32, 33, 24];
-ph["p26"]=[30];
-ph["p29"]=[4, 35];
-ph["p28"]=[4, 34];
-     return {
-         keywords: keywords,
-         ph: ph
-     }
-});
+ph["p1"]=[1, 2, 3];
+ph["p2"]=[4, 5, 6];
+ph["p3"]=[7, 8, 9, 10];
+ph["p4"]=[11];
+var keywordsInfo = {
+    keywords: keywords,
+    ph: ph
+}
